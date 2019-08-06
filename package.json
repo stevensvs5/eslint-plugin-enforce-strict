@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-enforce-strict",
-  "version": "0.0.0",
+  "version": "0.1.1",
   "description": "Enforce the rules of javascript's strict mode",
   "keywords": [
     "eslint",
