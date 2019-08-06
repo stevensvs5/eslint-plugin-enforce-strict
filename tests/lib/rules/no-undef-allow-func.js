@@ -27,7 +27,8 @@ ruleTester.run("no-undef-allow-func", rule, {
     valid: [
         // give me some code that won't trigger a warning
         { code: "var foo = 3;" },
-        { code: "reports_alert();" }
+        { code: "reports_alert();" },
+        { code: "typeof test;" }
     ],
 
     invalid: [
@@ -35,6 +36,27 @@ ruleTester.run("no-undef-allow-func", rule, {
             code: "foo = 3;",
             errors: [{
                 message: "'foo' is not defined.",
+                type: "Identifier"
+            }]
+        },
+        {
+            code: "var foo = 2; \nbar = 3;",
+            errors: [{
+                message: "'bar' is not defined.",
+                type: "Identifier"
+            }]
+        },
+        {
+            code: "var foo = 2; bar = 3;",
+            errors: [{
+                message: "'bar' is not defined.",
+                type: "Identifier"
+            }]
+        },
+        {
+            code: "test;",
+            errors: [{
+                message: "'test' is not defined.",
                 type: "Identifier"
             }]
         }
